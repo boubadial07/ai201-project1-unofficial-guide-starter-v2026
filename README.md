@@ -101,15 +101,13 @@ Laundry costs $1.75 wash, $1.75 dry, app-based. On noise: moderate; the building
 
 ## Sample Answer
 
-<!-- One complete question and answer, pasted as text, with the source line
-     visible. Milestone 4. -->
+**Question:** Do dining dollars roll over from the autumn semester to the spring?
 
-**Question:**
+**Answer:** Yes, dining dollars roll over from the autumn semester to the spring semester (`admin_dining_dollars.txt`).
 
-**Answer:**
-
-```
-```
+**Best distance:** 0.181
+**Cutoff:** 0.6
+**Source:** `admin_dining_dollars.txt`
 
 **My relevance cutoff:**
 
@@ -123,8 +121,19 @@ Laundry costs $1.75 wash, $1.75 dry, app-based. On noise: moderate; the building
      Milestone 4. -->
 
 | Question | In corpus? | Best distance |
-|---|---|---|
-|  |  |  |
+|---|---|---:|
+| Is the housing lottery completely random? | Yes | 0.251 |
+| When do student permits for the west lots go on sale? | Yes | 0.219 |
+| Is there a waitlist for the west parking lots? | Yes | 0.354 |
+| Do dining dollars roll over from the autumn semester to the spring? | Yes | 0.181 |
+| How many credit hours are required for graduation? | Yes | 0.268 |
+| What is the capital of Mongolia? | No | 0.825 |
+| How do I change the oil in a diesel engine? | No | 0.934 |
+| Who won the 1994 World Cup? | No | 0.886 |
+| What is the recommended dosage of ibuprofen for a headache? | No | 0.844 |
+| How do I write a for loop in Rust? | No | 0.896 |
+
+The five in-scope questions had best distances from 0.181 to 0.354, while the five out-of-scope questions had distances from 0.825 to 0.934. This created a clear gap between the two groups, so I kept the relevance cutoff at 0.6. The gate refused all 5 of the 5 out-of-scope questions.
 
 ## How I Used AI
 
