@@ -23,8 +23,7 @@ For at least 4 of my 5 test questions, the retrieved chunks include one that
 contains the answer.
 
 **Why this target:**
-<!-- e.g. "One of my questions is about a topic only two documents mention, so
-     I expect that one to be hard." -->
+"The `campus_life` corpus contains 88 short documents, and the information in each document is usually focused on one specific student-life topic. Because my five questions target specific topics such as housing, parking, dining dollars, and graduation requirements, I expect the relevant information to be retrieved for at least 4 of the 5 questions."
 
 ---
 
@@ -33,8 +32,7 @@ contains the answer.
 Every answer the system produces names at least one source document.
 
 **Why this target:**
-<!-- Why all five and not four? What about your setup makes that achievable —
-     or what would have to go wrong for it not to be? -->
+My corpus consists of short, focused documents, so each answer should be traceable to at least one document rather than requiring information from outside the corpus. Requiring a source for every produced answer also makes it possible to check whether the response is grounded in the retrieved material.
 
 ---
 
@@ -44,53 +42,38 @@ When I ask a question my documents clearly don't cover, the relevance gate
 stops it and the system returns "I don't have enough information about that" —
 in at least 4 of 5 tries.
 
-<!-- The five questions are the ones in `OUT_OF_SCOPE` at the bottom of
-     `questions.py`, and `run_eval.py` puts them through the gate and writes
-     what happened into your run log. Swap them for your own if you'd rather —
-     just keep five of them, or the "4 of 5" above has nothing to be 4 of. -->
-
 **Why this target:**
-<!-- What did your distances look like when you set the cutoff in Milestone 4?
-     Was there a clean gap, or did the two groups overlap? -->
+<!-- The `campus_life` corpus is limited to university and student-life topics, while the five out-of-scope questions cover unrelated subjects such as world history, vehicle maintenance, medication, and programming. Because those topics are clearly outside the corpus, I expect the relevance gate to reject at least 4 of the 5 questions. -->
 
 ---
 
 ## 4. Something about your chunks
 
-<!-- YOU WRITE THIS ONE.
+YOU WRITE THIS ONE.
 
      How would you know if your chunks were the right size? Name something
      countable or observable.
 
-     Examples of the right shape — don't copy these, they should come from
-     what you actually saw in Milestone 3:
-       - "At least 4 of 5 sampled chunks read as a complete thought, with no
-          sentence cut in half at either end."
-       - "No chunk is shorter than 200 characters, since anything below that
-          in my corpus turned out to be a heading with no content under it." -->
+     At least 4 of 5 sampled chunks should contain a complete thought about one student-life topic without cutting a sentence in half at either end.
 
 
 
 **Why this target:**
-
+The `campus_life` documents are short, averaging about 317 characters, and most contain information focused on a single topic. A chunk that preserves a complete thought should make the retrieved information easier to use for answering specific student-life questions.
 
 
 ---
 
 ## 5. Your choice
 
-<!-- YOU WRITE THIS ONE TOO.
+YOU WRITE THIS ONE TOO.
 
-     Pick something you actually care about getting right. It could be about
-     speed, about refusals, about a particular kind of question your corpus
-     handles badly, about source attribution being correct rather than merely
-     present — anything, as long as it names a number or an observable
-     outcome. -->
+     For all 5 in-scope test questions, the named source document should contain the information needed to support the answer.
 
 
 
 **Why this target:**
-
+Having a source listed is not enough if the source does not actually support the answer. Since my `campus_life` corpus contains short documents focused on specific topics, I want each answer's cited source to be directly relevant to the question rather than simply being one of the retrieved documents.
 
 
 ---
