@@ -111,12 +111,9 @@ Laundry costs $1.75 wash, $1.75 dry, app-based. On noise: moderate; the building
 
 **My relevance cutoff:**
 
-<!-- The number you set in config.py, and how you got there.
+**My relevance cutoff:** **0.6**
 
-     You ran five questions your corpus covers and the five in OUT_OF_SCOPE
-     that it clearly doesn't, and wrote down the best distance for each. What
-     did those two groups look like? Where was the gap? Put the actual numbers
-     here — the table below wants all ten rows.
+The five in-scope questions had best distances between 0.181 and 0.354, while the five out-of-scope questions had best distances between 0.825 and 0.934. I chose 0.6 because it falls between these two groups, allowing relevant questions to pass while causing unrelated questions to be rejected by the relevance gate.
 
      Milestone 4. -->
 
@@ -137,18 +134,13 @@ The five in-scope questions had best distances from 0.181 to 0.354, while the fi
 
 ## How I Used AI
 
-<!-- Two specific moments. For each: what you asked for, what came back, and
-     what you changed about it.
+**1. Chunking strategy:**
+I asked AI to help me reason about an appropriate chunking strategy after inspecting the `campus_life` corpus. AI explained that the documents were short and focused on individual topics, so keeping each document as one chunk would preserve the complete context better than splitting the documents into fixed-size pieces. I then implemented a document-level chunking strategy in `chunker.py` and verified it by running `python app.py chunks`.
 
-     "I asked Claude to write the chunking function from my notes. It ignored
-     the overlap, so I added that myself" is the level of detail we're after.
-     "I used AI to help me code" is not.
+**2. Retrieval evaluation:**
+I asked AI to help me interpret the retrieval distances from my in-scope and out-of-scope questions and determine whether my relevance cutoff was reasonable. The results showed that the in-scope questions had distances from 0.181 to 0.354, while the out-of-scope questions ranged from 0.825 to 0.934. I kept the cutoff at 0.6 because it separated the two groups, and I verified the result by running `python run_eval.py`, which rejected all 5 out-of-scope questions.
 
-     Milestone 5. -->
 
-**1.**
-
-**2.**
 
 <!-- ── Stretch features ─────────────────────────────────────────────────────
      Doing one? Say so here BEFORE you start. A feature this README never
