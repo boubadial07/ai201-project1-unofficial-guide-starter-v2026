@@ -21,10 +21,7 @@
 
 ## What This Does
 
-<!-- Three or four sentences. Which corpus you picked, and the kinds of
-     questions your system answers. Write it for someone who has never seen
-     this repo.
-
+<!-- This project builds a retrieval-augmented generation (RAG) system for answering questions about student life. I selected the `campus_life` corpus, which contains 88 short documents covering topics such as housing, dining, courses, and administrative rules. The system retrieves relevant information from these documents and uses it to generate grounded answers with source references. It is designed to answer practical questions about university life using information from the provided corpus.
      Milestone 5. -->
 
 ## Chunking Strategy
